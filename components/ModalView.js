@@ -52,10 +52,10 @@ export const ModalView = ({
 
             <IconButton
               icon="check"
-              color={colors.white}
+              color={colors.secondary}
               size={sizes.addTodoIconSize}
               style={{
-                backgroundColor: colors.secondary,
+                backgroundColor: colors.appContainer,
                 marginBottom: 15,
               }}
               onPress={() => {

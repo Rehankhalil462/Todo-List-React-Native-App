@@ -156,10 +156,22 @@ ${NBText.toUpperCase()}`,
   };
 
   return (
-    <View style={[styles.headercontainer, { backgroundColor: "#041955" }]}>
+    <View
+      style={{
+        flex: 0.13,
+        marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : null,
+
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingHorizontal: 15,
+        width: "100%",
+        backgroundColor: colors.primary,
+      }}
+    >
       <Text
         style={{
-          color: colors.white,
+          color: colors.headerText,
           fontSize: sizes.headerText,
           fontWeight: fontWeights.bold,
           fontStyle: fontWeights.italic,
@@ -187,7 +199,7 @@ ${NBText.toUpperCase()}`,
               marginRight: 8,
               width: null,
               height: null,
-              backgroundColor: colors.iconsBackground,
+              backgroundColor: colors.secondary,
             }}
             onPress={settingsHandler}
           />
@@ -202,7 +214,7 @@ ${NBText.toUpperCase()}`,
               marginRight: 8,
               width: null,
               height: null,
-              backgroundColor: colors.iconsBackground,
+              backgroundColor: colors.secondary,
             }}
             onPress={restoreTodosHandler}
           />
@@ -215,7 +227,7 @@ ${NBText.toUpperCase()}`,
               margin: 0,
               width: null,
               height: null,
-              backgroundColor: colors.iconsBackground,
+              backgroundColor: colors.secondary,
             }}
             onPress={deleteAllTodosHandler}
           />
@@ -235,14 +247,5 @@ ${NBText.toUpperCase()}`,
   );
 };
 const styles = StyleSheet.create({
-  headercontainer: {
-    flex: 0.13,
-    marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : null,
-
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    paddingHorizontal: 15,
-    width: "100%",
-  },
+  headercontainer: {},
 });

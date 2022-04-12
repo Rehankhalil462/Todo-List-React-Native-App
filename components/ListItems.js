@@ -62,7 +62,7 @@ export const ListItems = ({
                       ? "line-through"
                       : null,
                     textDecorationStyle: item.isCompleted ? "solid" : null,
-                    color: colors.iconsBackground,
+                    color: colors.listItemText,
                     fontSize: sizes.todosText,
                   },
                 ]}
@@ -74,7 +74,7 @@ export const ListItems = ({
               <IconButton
                 icon="square-edit-outline"
                 size={sizes.listItemIcons}
-                color={colors.iconsBackground}
+                color={colors.secondary}
                 style={{
                   marginBottom: 5,
                   marginHorizontal: 0,
@@ -87,7 +87,7 @@ export const ListItems = ({
               <IconButton
                 icon="delete"
                 size={sizes.listItemIcons}
-                color={colors.iconsBackground}
+                color={colors.secondary}
                 style={{ margin: 0, width: null, height: null }}
                 onPress={() => deleteTodo(item.key)}
               />
@@ -95,7 +95,7 @@ export const ListItems = ({
           </View>
           <View style={{ alignItems: "flex-start", marginTop: 5 }}>
             <Text
-              style={{ color: colors.fadeText, fontSize: sizes.listItemDate }}
+              style={{ color: colors.secondary, fontSize: sizes.listItemDate }}
             >
               {item.date}
             </Text>
