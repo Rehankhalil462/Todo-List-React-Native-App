@@ -47,6 +47,7 @@ export const Header = ({
                 showToast("Todos Are Deleted Successfully !");
               } else {
                 setTodos([]);
+
                 showToast("Todos Are Deleted Successfully !");
               }
             },
