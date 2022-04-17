@@ -106,6 +106,8 @@ export const ListItems = ({
               <Text
                 style={{
                   color: colors.secondary,
+                  fontFamily: "RobotoSlab_400Regular",
+                  letterSpacing: 1,
                   fontSize: sizes.listItemDate,
                 }}
               >
@@ -141,8 +143,9 @@ const styles = StyleSheet.create({
   },
   todoText: {
     letterSpacing: 2,
-    marginLeft: 15,
-    paddingRight: 10,
+    marginLeft: 7,
+    paddingRight: 15,
     flex: 1,
+    fontFamily: "RobotoSlab_400Regular",
   },
 });

@@ -1,9 +1,9 @@
 {
   "expo": {
-    "name": "To Do List",
+    "name": "To-Do List",
     "slug": "TodoApp",
     "version": "1.0.0",
-    "description": "A Minimal To Do List App",
+    "description": "A Minimal To-Do List App",
 
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -25,7 +25,7 @@
 
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#fff"
       }
     },
     "web": {

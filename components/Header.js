@@ -178,12 +178,11 @@ ${NBText.toUpperCase()}`,
         style={{
           color: colors.headerText,
           fontSize: sizes.headerText,
-          fontWeight: fontWeights.bold,
-          fontStyle: fontWeights.italic,
-          letterSpacing: 2,
+          letterSpacing: 1,
+          fontFamily: "RobotoSlab_700Bold",
         }}
       >
-        Todos
+        TODOS
       </Text>
       <View style={{ alignItems: "center" }}>
         <View
@@ -241,6 +240,8 @@ ${NBText.toUpperCase()}`,
           style={{
             color: colors.fadeText,
             fontSize: sizes.lastTodoStatusText,
+            fontFamily: "RobotoSlab_400Regular",
+
             marginBottom: 1,
           }}
         >
@@ -251,6 +252,3 @@ ${NBText.toUpperCase()}`,
     </View>
   );
 };
-const styles = StyleSheet.create({
-  headercontainer: {},
-});

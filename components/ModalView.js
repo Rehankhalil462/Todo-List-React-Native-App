@@ -62,9 +62,15 @@ export const ModalView = ({
                 if (txt === "") {
                   Alert.alert(null, "Please Write Something !");
                 } else if (!todoToBeEdited) {
+                  const date = new Date().toLocaleString();
+                  const formattedDate = `${date.split(" ")[0]}  ${
+                    date.split(" ")[2]
+                  }-${date.split(" ")[1]}-${date.split(" ")[4]}  ${
+                    date.split(" ")[3]
+                  }`;
                   addTodo({
                     title: txt,
-                    date: new Date().toUTCString(),
+                    date: formattedDate,
                     isCompleted: false,
                     key: Date.now(),
                   });

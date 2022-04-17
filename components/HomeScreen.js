@@ -1,6 +1,12 @@
 import { useTheme } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { SafeAreaView, Alert, BackHandler, ToastAndroid } from "react-native";
+import {
+  SafeAreaView,
+  Alert,
+  BackHandler,
+  ToastAndroid,
+  ImageBackground,
+} from "react-native";
 import React, { useState, useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 
@@ -175,6 +181,17 @@ export const HomeScreen = ({ setIsEnabled, isEnabled }) => {
         />
       ) : (
         <>
+          {isEnabled && (
+            <ImageBackground
+              style={{
+                height: "100%",
+                width: "100%",
+                position: "absolute",
+              }}
+              source={require("../assets/background.png")}
+            />
+          )}
+
           <Header
             setTodos={setTodos}
             todos={todos}
@@ -207,6 +224,7 @@ export const HomeScreen = ({ setIsEnabled, isEnabled }) => {
           />
         </>
       )}
+
       <StatusBar style={isEnabled ? "dark" : "light"} />
     </SafeAreaView>
   );
