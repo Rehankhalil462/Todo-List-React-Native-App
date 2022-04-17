@@ -1,13 +1,15 @@
 {
   "expo": {
-    "name": "Todo App",
+    "name": "To Do List",
     "slug": "TodoApp",
     "version": "1.0.0",
+    "description": "A Minimal To Do List App",
+
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -18,6 +20,9 @@
       "supportsTablet": true
     },
     "android": {
+      "permissions": [],
+      "versionCode": 1,
+
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"

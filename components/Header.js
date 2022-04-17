@@ -55,7 +55,11 @@ export const Header = ({
         ]
       );
     } else {
-      Alert.alert(null, "Nothing Is In The Todos List To Delete !");
+      Alert.alert(
+        null,
+
+        "Nothing Is In The Todos List To Delete !"
+      );
     }
   };
 
@@ -108,7 +112,7 @@ export const Header = ({
   const settingsHandler = () => {
     Alert.alert(
       "Confirmation",
-      `If You Want To Save Last Deleted 'Todos List' Data, Then Click 'YES'. Otherwise Click 'NO'.
+      `If You Want To Save Last Deleted 'Todos List' Data, Then Click 'YES'. Otherwise Click 'NO'.But it will just save list of those todos that will be deleted by trash icon in the 'Top Right Corner'.
 
 ${NBText.toUpperCase()}`,
       [

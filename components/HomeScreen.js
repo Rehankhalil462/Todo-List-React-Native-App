@@ -1,12 +1,6 @@
 import { useTheme } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import {
-  StyleSheet,
-  SafeAreaView,
-  Alert,
-  BackHandler,
-  ToastAndroid,
-} from "react-native";
+import { SafeAreaView, Alert, BackHandler, ToastAndroid } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
 

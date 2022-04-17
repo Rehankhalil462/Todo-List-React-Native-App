@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text, StyleSheet, FlatList, View } from "react-native";
 import { IconButton, useTheme } from "react-native-paper";
 import * as Animatable from "react-native-animatable";
