@@ -185,7 +185,7 @@ ${NBText.toUpperCase()}`,
       >
         Todos
       </Text>
-      <View>
+      <View style={{ alignItems: "center" }}>
         <View
           style={{
             flexDirection: "row",
