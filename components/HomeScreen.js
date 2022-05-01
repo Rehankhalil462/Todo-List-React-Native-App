@@ -31,7 +31,7 @@ export const HomeScreen = ({ setIsEnabled, isEnabled }) => {
   const [todoToBeEdited, setTodoToBeEdited] = useState(null);
 
   const addTodo = (todo) => {
-    const updatedTodos = [...todos, todo];
+    const updatedTodos = [todo, ...todos];
     setTodos(updatedTodos);
     setModalVisible(!modalVisible);
     setTxt("");

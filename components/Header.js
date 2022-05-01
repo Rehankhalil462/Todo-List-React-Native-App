@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Text,
-  StyleSheet,
-  View,
-  StatusBar,
-  Alert,
-  ToastAndroid,
-} from "react-native";
+import { Text, View, StatusBar, Alert, ToastAndroid } from "react-native";
 import { IconButton, useTheme } from "react-native-paper";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";

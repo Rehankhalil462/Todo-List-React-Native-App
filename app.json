@@ -4,7 +4,6 @@
     "slug": "TodoApp",
     "version": "1.0.0",
     "description": "A Minimal To-Do List App",
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -15,18 +14,20 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "permissions": [],
       "versionCode": 1,
-
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#fff"
-      }
+      },
+      "package": "com.rehankhalil462.TodoApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"

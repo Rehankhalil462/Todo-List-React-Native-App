@@ -25,7 +25,7 @@ export const ModalView = ({
         >
           <TextInput
             style={{ marginBottom: 25 }}
-            placeholder="Please write something !"
+            placeholder="Please write something ! "
             mode="outlined"
             autoCapitalize="words"
             value={txt}
@@ -63,14 +63,14 @@ export const ModalView = ({
                   Alert.alert(null, "Please Write Something !");
                 } else if (!todoToBeEdited) {
                   const date = new Date().toLocaleString();
-                  const formattedDate = `${date.split(" ")[0]}  ${
-                    date.split(" ")[2]
-                  }-${date.split(" ")[1]}-${date.split(" ")[4]}  ${
-                    date.split(" ")[3]
-                  }`;
+                  // console.log(date);
+                  // const splittedDate = date.split(" ");
+                  // console.log(splittedDate);
+                  // const formattedDate = `${splittedDate[0]} , ${splittedDate[3]}-${splittedDate[1]}-${splittedDate[5]} , ${splittedDate[4]}`;
+
                   addTodo({
                     title: txt,
-                    date: formattedDate,
+                    date: date,
                     isCompleted: false,
                     key: Date.now(),
                   });

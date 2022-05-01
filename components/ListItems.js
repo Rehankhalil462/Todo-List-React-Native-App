@@ -21,7 +21,7 @@ export const ListItems = ({
       renderItem={({ item, index }) => (
         <Animatable.View
           key={index}
-          animation="fadeInRightBig"
+          animation="fadeInUpBig"
           delay={index * 250}
         >
           <View
