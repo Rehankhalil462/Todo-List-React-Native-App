@@ -23,7 +23,6 @@
     },
     "android": {
       "permissions": [],
-      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#fff"
@@ -32,6 +31,14 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "989458f6-8e30-40a1-ae33-59e4920a4bd8"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

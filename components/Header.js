@@ -160,74 +160,77 @@ ${NBText.toUpperCase()}`,
   return (
     <View
       style={{
-        flex: 0.13,
-        paddingTop: insets.top,
+        flex: 0.10,
+        paddingTop: insets.top ,
+        paddingBottom: 10,
         alignItems: "center",
         flexDirection: "row",
         justifyContent: "space-between",
-        paddingHorizontal: 15,
+        paddingHorizontal: 20,
         width: "100%",
         backgroundColor: colors.primary,
+        shadowColor: colors.shadowColor || "#000",
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.15,
+        shadowRadius: 12,
+        elevation: 6,
+        borderBottomWidth: 0,
+        borderBottomLeftRadius: 24,
+        borderBottomRightRadius: 24,
       }}
     >
       <Text
         style={{
           color: colors.headerText,
           fontSize: sizes.headerText,
-          letterSpacing: 1,
+          letterSpacing: 0.5,
           fontFamily: "RobotoSlab_700Bold",
+          fontWeight: "700",
         }}
       >
-        TODOS
+        My Tasks
       </Text>
-      <View style={{ alignItems: "center" }}>
+      <View style={{ alignItems: "flex-end" }}>
         <View
           style={{
             flexDirection: "row",
             justifyContent: "flex-end",
-            marginBottom: 2,
-            marginTop: 3,
+            marginBottom: 6,
+            gap: 8,
           }}
         >
           <IconButton
             icon="cog-outline"
             size={sizes.headerIcon}
-            color={colors.primary}
+            iconColor={colors.secondary}
             style={{
-              marginVertical: 0,
-              marginLeft: 0,
-              marginRight: 8,
-              width: null,
-              height: null,
-              backgroundColor: colors.secondary,
+              margin: 0,
+              backgroundColor: colors.secondary + "20",
+              borderRadius: 12,
             }}
             onPress={settingsHandler}
           />
           <IconButton
             icon="delete-restore"
             size={sizes.headerIcon}
-            color={colors.primary}
-            disabled={isClicked === "true" ? true : false}
+            iconColor={isClicked === "true" ? colors.fadeText : colors.secondary}
+            disabled={isClicked === "true"}
             style={{
-              marginVertical: 0,
-              marginLeft: 0,
-              marginRight: 8,
-              width: null,
-              height: null,
-              backgroundColor: colors.secondary,
+              margin: 0,
+              backgroundColor: isClicked === "true" ? colors.fadeText + "10" : colors.secondary + "20",
+              borderRadius: 12,
+              opacity: isClicked === "true" ? 0.5 : 1,
             }}
             onPress={restoreTodosHandler}
           />
-
           <IconButton
             icon="delete-forever-outline"
             size={sizes.headerIcon}
-            color={colors.primary}
+            iconColor={colors.danger || "#f87171"}
             style={{
               margin: 0,
-              width: null,
-              height: null,
-              backgroundColor: colors.secondary,
+              backgroundColor: (colors.danger || "#f87171") + "20",
+              borderRadius: 12,
             }}
             onPress={deleteAllTodosHandler}
           />
@@ -237,12 +240,10 @@ ${NBText.toUpperCase()}`,
             color: colors.fadeText,
             fontSize: sizes.lastTodoStatusText,
             fontFamily: "RobotoSlab_400Regular",
-
-            marginBottom: 1,
+            marginTop: 2,
           }}
         >
-          Last Deleted Todos Saver :
-          {isTodosListHistoryStatusActivated === "true" ? " ON" : " OFF"}
+          Auto-save: {isTodosListHistoryStatusActivated === "true" ? "ON" : "OFF"}
         </Text>
       </View>
     </View>

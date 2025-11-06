@@ -14,17 +14,25 @@ export const AddToDoButton = ({ setModalVisible, modalVisible }) => {
         position: "absolute",
         right: 0,
         left: 0,
-        alignItems:"center",
-        justifyContent:"center",
-        paddingBottom: Math.max(insets.bottom, 15),
-        paddingRight: 15,
+        alignItems: "center",
+        justifyContent: "center",
+        paddingBottom: Math.max(insets.bottom, 20),
+        paddingTop: 12,
       }}
     >
       <IconButton
-        style={{ backgroundColor: colors.tertiary }}
         icon="plus"
-        color={colors.white}
+        iconColor={colors.white}
         size={sizes.addTodoIconSize}
+        style={{ 
+          backgroundColor: colors.tertiary,
+          borderRadius: sizes.addTodoIconSize / 2,
+          shadowColor: colors.tertiary,
+          shadowOffset: { width: 0, height: 6 },
+          shadowOpacity: 0.4,
+          shadowRadius: 12,
+          elevation: 8,
+        }}
         onPress={() => setModalVisible(!modalVisible)}
       />
     </View>
