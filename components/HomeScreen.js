@@ -1,7 +1,6 @@
 import { useTheme } from "react-native-paper";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
-  SafeAreaView,
   Alert,
   BackHandler,
   ToastAndroid,
@@ -9,7 +8,7 @@ import {
 } from "react-native";
 import React, { useState, useEffect, useRef } from "react";
 import { StatusBar } from "expo-status-bar";
-
+import { SafeAreaView } from "react-native-safe-area-context";
 import { Header } from "./Header";
 import { ListItems } from "./ListItems";
 
@@ -118,31 +117,32 @@ export const HomeScreen = ({ setIsEnabled, isEnabled }) => {
       }
       const todosListHistory = await AsyncStorage.getItem("todosList");
 
-      if (todosListHistory && JSON.parse(todosListHistory).length !== 0) {
-        setTodos(JSON.parse(todosListHistory));
-        ToastAndroid.show(
-          "Last Data Is Restored",
-          ToastAndroid.LONG,
-          ToastAndroid.CENTER
-        );
-      }
-      if (JSON.parse(todosListHistory).length === 0) {
-        setIsClicked(lastisClickedStatus);
-        setIsTodosListHistoryStatusActivated(
-          lastIsTodosListHistoryStatusActivated
-        );
-        ToastAndroid.show("Welcome !", ToastAndroid.LONG, ToastAndroid.CENTER);
+      if (todosListHistory) {
+        const parsedTodos = JSON.parse(todosListHistory);
+        if (parsedTodos.length !== 0) {
+          setTodos(parsedTodos);
+          ToastAndroid.showWithGravity(
+            "Last Data Is Restored",
+            ToastAndroid.LONG,
+            ToastAndroid.CENTER
+          );
+        } else {
+          setIsClicked(lastisClickedStatus);
+          setIsTodosListHistoryStatusActivated(
+            lastIsTodosListHistoryStatusActivated
+          );
+          ToastAndroid.showWithGravity("Welcome !", ToastAndroid.LONG, ToastAndroid.CENTER);
+        }
       }
     } catch (err) {
       console.log(err);
     }
   };
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", closeAppAction);
-
     loadTodosList();
-    return () =>
-      BackHandler.removeEventListener("hardwareBackPress", closeAppAction);
+    
+    const backHandler = BackHandler.addEventListener("hardwareBackPress", closeAppAction);
+    return () => backHandler.remove();
   }, []);
 
   const useDidMountEffect = (func, deps) => {
@@ -160,12 +160,13 @@ export const HomeScreen = ({ setIsEnabled, isEnabled }) => {
   }, [todos, isTodosListHistoryStatusActivated]);
 
   return (
-    <SafeAreaView
+    <SafeAreaView edges={[]}
       style={{
         flex: 1,
         backgroundColor: colors.appContainer,
         alignItems: "center",
         justifyContent: "center",
+        position: "relative",
       }}
     >
       {modalVisible ? (

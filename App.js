@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { HomeScreen } from "./components/HomeScreen";
 import { darkTheme, lightTheme } from "./styles/theme";
 import { Provider as PaperProvider } from "react-native-paper";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   RobotoSlab_400Regular,
@@ -31,9 +32,8 @@ export default function App() {
   const loadThemeOption = async () => {
     try {
       const boolstring = await AsyncStorage.getItem("lighttheme");
-      const bool = JSON.parse(boolstring.toLowerCase()) === "true";
-
-      if (bool || !bool) {
+      if (boolstring) {
+        const bool = JSON.parse(boolstring.toLowerCase()) === "true";
         setIsEnabled(bool);
       }
     } catch (err) {
@@ -63,8 +63,10 @@ export default function App() {
   }
 
   return (
-    <PaperProvider theme={isEnabled ? lightTheme : darkTheme}>
-      <HomeScreen setIsEnabled={setIsEnabled} isEnabled={isEnabled} />
-    </PaperProvider>
+    <SafeAreaProvider>
+      <PaperProvider theme={isEnabled ? lightTheme : darkTheme}>
+        <HomeScreen setIsEnabled={setIsEnabled} isEnabled={isEnabled} />
+      </PaperProvider>
+    </SafeAreaProvider>
   );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, StatusBar, Alert, ToastAndroid } from "react-native";
 import { IconButton, useTheme } from "react-native-paper";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
@@ -13,11 +14,12 @@ export const Header = ({
   setIsTodosListHistoryStatusActivated,
 }) => {
   const { colors, sizes, fontWeights } = useTheme();
+  const insets = useSafeAreaInsets();
 
   const NBText = "( NOTE : Click 'No' To Revert Your Decision From 'Yes' )";
 
   const showToast = (message) => {
-    ToastAndroid.show(message, ToastAndroid.LONG, ToastAndroid.CENTER);
+    ToastAndroid.showWithGravity(message, ToastAndroid.LONG, ToastAndroid.CENTER);
   };
   const deleteAllTodosHandler = () => {
     if (todos.length !== 0) {
@@ -139,14 +141,16 @@ ${NBText.toUpperCase()}`,
   const loadlastTodosList = async () => {
     try {
       const lasttodosListHistory = await AsyncStorage.getItem("lastTodosList");
-      if (JSON.parse(lasttodosListHistory).length !== 0 && todos.length !== 0) {
+      if (lasttodosListHistory) {
         const lastData = JSON.parse(lasttodosListHistory);
-        const MergedData = [...todos, ...lastData];
-        setTodos(MergedData);
-        showToast("Last Deleted Todos Are Merged With Recent Todos");
-      } else {
-        setTodos(JSON.parse(lasttodosListHistory));
-        showToast("Todos Data Is Restored From Last Deletion !");
+        if (lastData.length !== 0 && todos.length !== 0) {
+          const MergedData = [...todos, ...lastData];
+          setTodos(MergedData);
+          showToast("Last Deleted Todos Are Merged With Recent Todos");
+        } else if (lastData.length !== 0) {
+          setTodos(lastData);
+          showToast("Todos Data Is Restored From Last Deletion !");
+        }
       }
     } catch (err) {
       console.log(err);
@@ -157,8 +161,7 @@ ${NBText.toUpperCase()}`,
     <View
       style={{
         flex: 0.13,
-        marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : null,
-
+        paddingTop: insets.top,
         alignItems: "center",
         flexDirection: "row",
         justifyContent: "space-between",
